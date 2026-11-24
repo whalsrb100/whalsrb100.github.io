@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>원격 데이터 복구 접수 — USB·SD카드·외장하드</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+    }
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+    }
+    .faq-item.open .faq-body {
+      max-height: 260px;
+    }
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+    }
+    .faq-chevron {
+      transition: transform 0.2s ease;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-blue-100 selection:text-blue-900">
+
+  <!-- 상단 네비게이션 -->
+  <header class="sticky top-0 z-30 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <a href="#top" class="flex items-center gap-2 font-bold text-slate-900 text-base sm:text-lg whitespace-nowrap">
+        <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-blue-600 text-white">
+          <i data-lucide="hard-drive" class="w-4 h-4"></i>
+        </span>
+        <span>원격 데이터 복구</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="#how" class="hover:text-blue-600 transition">이용 방법</a>
+        <a href="#safety" class="hover:text-blue-600 transition">안전성</a>
+        <a href="#faq" class="hover:text-blue-600 transition">자주 묻는 질문</a>
+        <a href="#contact" class="hover:text-blue-600 transition">접수 문의</a>
+      </nav>
+
+      <button type="button" id="navDownloadBtn"
+        class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow-sm transition whitespace-nowrap">
+        <i data-lucide="download" class="w-4 h-4"></i>
+        <span>프로그램 받기</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- 히어로 섹션 -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-white to-slate-50 border-b border-slate-200">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold mb-6">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+            <span>100% 읽기 전용 · 원본 무손상 원격 접수</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight mb-5">
+            택배 보낼 필요 없이,<br />
+            <span class="text-blue-600">집에서 안전하게</span> 데이터 복구 접수
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-600 leading-relaxed mb-8">
+            삭제되거나 포맷된 USB, SD카드, 외장하드를 PC에 꽂고 전용 접수 프로그램만 실행하세요.
+            장치에는 아무것도 쓰지 않고 원본 그대로 안전하게 전송해 복구 가능 여부를 확인해 드립니다.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-3 mb-10">
+            <button type="button" id="heroDownloadBtn"
+              class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base shadow-md shadow-blue-600/20 transition">
+              <i data-lucide="download" class="w-5 h-5"></i>
+              <span>Windows 접수 프로그램 다운로드</span>
+            </button>
+            <a href="#how"
+              class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-slate-800 font-semibold text-base border border-slate-300 transition">
+              <span>이용 방법 보기</span>
+              <i data-lucide="arrow-down" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+          <!-- 핵심 신뢰 지표 -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
+            <div class="bg-white border border-slate-200 rounded-xl p-3.5">
+              <div class="font-bold text-slate-900">쓰기 0%</div>
+              <div class="text-xs text-slate-500 mt-0.5">읽기 전용 원본 복사</div>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-xl p-3.5">
+              <div class="font-bold text-slate-900">약 1MB</div>
+              <div class="text-xs text-slate-500 mt-0.5">설치 없는 단일 파일</div>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-xl p-3.5">
+              <div class="font-bold text-slate-900">24시간 코드</div>
+              <div class="text-xs text-slate-500 mt-0.5">1회용 전용 접수 코드</div>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-xl p-3.5">
+              <div class="font-bold text-slate-900">자동 이어올리기</div>
+              <div class="text-xs text-slate-500 mt-0.5">끊겨도 중단 위치부터</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 이용 방법 3단계 -->
+    <section id="how" class="py-16 sm:py-20">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="mb-10">
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-600">How It Works</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">접수 진행 순서 (3단계)</h2>
+          <p class="text-slate-600 mt-2 text-sm sm:text-base">복잡한 설치나 회원가입 없이 3분 안에 전송을 시작할 수 있습니다.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 font-bold flex items-center justify-center mb-4">1</div>
+            <h3 class="font-bold text-lg text-slate-900 mb-2">상담 후 접수 코드 받기</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              아래 문자 또는 오픈채팅으로 장치 종류와 용량을 알려주시면, 24시간 동안 유효한 전용 8자리 접수 코드를 보내 드립니다.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 font-bold flex items-center justify-center mb-4">2</div>
+            <h3 class="font-bold text-lg text-slate-900 mb-2">장치 선택 및 코드 입력</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              접수 프로그램을 실행해 안내에 동의한 뒤, 복구할 USB·SD카드·외장하드를 선택하고 문자로 받은 코드를 입력합니다.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 font-bold flex items-center justify-center mb-4">3</div>
+            <h3 class="font-bold text-lg text-slate-900 mb-2">전송 완료 후 복구 확인</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              완료 화면이 뜨면 장치를 안전하게 뽑으셔도 됩니다. 수신된 원본 이미지를 분석해 복구 가능한 파일 목록을 안내해 드립니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 안전성 및 기술 특징 -->
+    <section id="safety" class="py-16 sm:py-20 bg-white border-y border-slate-200">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="mb-10">
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Safety First</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">안심하고 맡길 수 있는 이유</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div class="flex gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <div class="shrink-0 w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center">
+              <i data-lucide="lock" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-900 mb-1">장치에 절대 쓰지 않습니다</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Windows 물리 장치를 100% 읽기 전용으로만 열어 섹터 단위로 복사하므로, 남아 있는 삭제 데이터가 덮어쓰일 위험이 없습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <div class="shrink-0 w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center">
+              <i data-lucide="shield-alert" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-900 mb-1">내 컴퓨터 C 드라이브 자동 제외</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Windows가 설치된 시스템 디스크는 선택 목록에 아예 표시되지 않으며, 연결된 이동식·외장 저장장치만 표시됩니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <div class="shrink-0 w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center">
+              <i data-lucide="zap" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-900 mb-1">고객 PC 용량 사용 0%</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                PC에 대용량 이미지 파일을 따로 저장하지 않고, 메모리에서 실시간 압축(zstd)하며 암호화(HTTPS) 채널로 바로 전송합니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <div class="shrink-0 w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center">
+              <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-900 mb-1">배드 섹터 우회 및 SHA-256 검증</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                읽기 오류가 난 구간은 섹터 단위로 재시도해 최대한 살려내고, 원본 전체의 SHA-256 해시로 전송 무결성을 검증합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 자주 묻는 질문 (FAQ) -->
+    <section id="faq" class="py-16 sm:py-20">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="mb-8">
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-600">FAQ</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">자주 묻는 질문</h2>
+        </div>
+
+        <div class="space-y-3" id="faqList">
+          <div class="faq-item open bg-white border border-slate-200 rounded-xl">
+            <button type="button" class="faq-trigger w-full px-5 py-4 flex items-center justify-between text-left font-semibold text-slate-900 text-sm sm:text-base">
+              <span>전송 도중 인터넷이 끊기면 처음부터 다시 해야 하나요?</span>
+              <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-slate-400 shrink-0"></i>
+            </button>
+            <div class="faq-body">
+              <div class="px-5 pb-4 text-sm text-slate-600 leading-relaxed">
+                아니요. 인터넷이 일시적으로 끊겨도 프로그램이 자동으로 재연결을 시도하며, 서버가 마지막으로 받은 위치부터 그대로 이어서 올립니다.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item bg-white border border-slate-200 rounded-xl">
+            <button type="button" class="faq-trigger w-full px-5 py-4 flex items-center justify-between text-left font-semibold text-slate-900 text-sm sm:text-base">
+              <span>실행할 때 "관리자 권한"이나 Windows 보호 경고가 뜨는 이유는 무엇인가요?</span>
+              <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-slate-400 shrink-0"></i>
+            </button>
+            <div class="faq-body">
+              <div class="px-5 pb-4 text-sm text-slate-600 leading-relaxed">
+                삭제된 영역까지 포함해 저장장치 전체를 원본 그대로 읽으려면 Windows 정책상 관리자 권한이 필수입니다.
+                SmartScreen 안내가 뜰 경우 <strong>[추가 정보] → [실행]</strong>을 눌러 진행해 주세요.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item bg-white border border-slate-200 rounded-xl">
+            <button type="button" class="faq-trigger w-full px-5 py-4 flex items-center justify-between text-left font-semibold text-slate-900 text-sm sm:text-base">
+              <span>어떤 저장장치를 접수할 수 있나요?</span>
+              <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-slate-400 shrink-0"></i>
+            </button>
+            <div class="faq-body">
+              <div class="px-5 pb-4 text-sm text-slate-600 leading-relaxed">
+                PC에 연결했을 때 인식이 되는 USB 메모리, SD/microSD 카드, 외장하드, 외장 SSD가 가능합니다.
+                (장치 자체가 PC에서 전혀 인식되지 않거나 딸깍거리는 물리 고장 소리가 나는 경우에는 별도 상담이 필요합니다.)
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item bg-white border border-slate-200 rounded-xl">
+            <button type="button" class="faq-trigger w-full px-5 py-4 flex items-center justify-between text-left font-semibold text-slate-900 text-sm sm:text-base">
+              <span>보낸 데이터는 복구 작업이 끝나면 어떻게 되나요?</span>
+              <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-slate-400 shrink-0"></i>
+            </button>
+            <div class="faq-body">
+              <div class="px-5 pb-4 text-sm text-slate-600 leading-relaxed">
+                고객님께 복구 파일 전달 및 확인이 완료되면 보관 중이던 원본 이미지와 복구 데이터는 모두 영구 삭제합니다.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 문의 및 접수 코드 발급 안내 -->
+    <section id="contact" class="py-16 bg-slate-900 text-white">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+          <div class="max-w-xl">
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-400">Contact</span>
+            <h2 class="text-2xl sm:text-3xl font-bold mt-1 mb-3">복구 상담 및 접수 코드 요청</h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              저장장치 종류(USB/SD/외장하드), 용량, 증상(삭제/포맷/인식 오류 등)을 보내주시면 확인 후 전용 접수 코드를 발급해 드립니다.
+            </p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3">
+            <button type="button" id="copyKakaoBtn"
+              class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-sm transition">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+              <span>오픈채팅 주소 복사</span>
+            </button>
+            <button type="button" id="copyPhoneBtn"
+              class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm border border-slate-700 transition">
+              <i data-lucide="smartphone" class="w-4 h-4"></i>
+              <span>문자 문의 번호 복사</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-slate-950 text-slate-400 text-xs py-6">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <span>© 2026 원격 데이터 복구 접수 (임시 시안 — 상호명·연락처를 교체해 사용하세요)</span>
+      <span>Windows 10 / 11 (64-bit) 지원</span>
+    </div>
+  </footer>
+
+  <!-- 다운로드 안내 모달 -->
+  <div id="downloadModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/60 backdrop-blur-sm p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div>
+          <h3 class="text-lg font-bold text-slate-900">Windows 접수 프로그램 다운로드</h3>
+          <p class="text-xs text-slate-500 mt-0.5">버전 1.0.0 · Windows 10/11 (64비트) · 약 1MB</p>
+        </div>
+        <button type="button" id="closeModalBtn" class="p-1 rounded-lg hover:bg-slate-100 text-slate-500">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-sm text-slate-700 space-y-2 mb-5">
+        <div class="flex justify-between">
+          <span class="text-slate-500">파일명</span>
+          <span class="font-mono font-semibold">recovery-intake.exe</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-500">동작 방식</span>
+          <span class="font-medium text-emerald-700">100% 읽기 전용</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-500">사전 준비</span>
+          <span class="font-medium">상담 후 받은 8자리 접수 코드</span>
+        </div>
+      </div>
+
+      <p class="text-xs text-slate-500 leading-relaxed mb-5">
+        * 현재는 임시 미리보기 페이지입니다. 실제 GitHub Pages 배포 시 <code class="bg-slate-100 px-1 py-0.5 rounded">DOWNLOAD_URL</code> 변수에 GitHub Releases 직링크를 넣으면 바로 다운로드됩니다.
+      </p>
+
+      <div class="flex gap-2.5">
+        <button type="button" id="confirmDownloadBtn"
+          class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm transition">
+          <i data-lucide="download" class="w-4 h-4"></i>
+          <span>다운로드 시작</span>
+        </button>
+        <button type="button" id="cancelModalBtn"
+          class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-sm transition">
+          닫기
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 토스트 알림 -->
+  <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 hidden px-4 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-medium shadow-lg">
+  </div>
+
+  <script>
+    // 실제 배포 시 아래 3개 값만 본인 정보로 수정하세요.
+    const SITE_CONFIG = {
+      DOWNLOAD_URL: "", // 예: "https://github.com/내아이디/recovery-intake/releases/latest/download/recovery-intake.exe"
+      KAKAO_URL: "https://open.kakao.com/o/여기에_오픈채팅_주소",
+      PHONE_NUMBER: "010-0000-0000"
+    };
+
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+
+    const toastEl = document.getElementById("toast");
+    let toastTimer = null;
+    function showToast(msg) {
+      toastEl.textContent = msg;
+      toastEl.classList.remove("hidden");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toastEl.classList.add("hidden"), 3000);
+    }
+
+    function copyText(text, label) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          () => showToast(label + " 복사됨: " + text),
+          () => fallbackCopy(text, label)
+        );
+      } else {
+        fallbackCopy(text, label);
+      }
+    }
+
+    function fallbackCopy(text, label) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy");
+        showToast(label + " 복사됨: " + text);
+      } catch (_) {
+        showToast(label + ": " + text);
+      }
+      document.body.removeChild(ta);
+    }
+
+    // FAQ 아코디언
+    document.querySelectorAll(".faq-trigger").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const item = btn.closest(".faq-item");
+        item.classList.toggle("open");
+      });
+    });
+
+    // 다운로드 모달
+    const modal = document.getElementById("downloadModal");
+    function openModal() {
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+    function closeModal() {
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    document.getElementById("navDownloadBtn").addEventListener("click", openModal);
+    document.getElementById("heroDownloadBtn").addEventListener("click", openModal);
+    document.getElementById("closeModalBtn").addEventListener("click", closeModal);
+    document.getElementById("cancelModalBtn").addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.getElementById("confirmDownloadBtn").addEventListener("click", () => {
+      if (SITE_CONFIG.DOWNLOAD_URL) {
+        window.open(SITE_CONFIG.DOWNLOAD_URL, "_blank", "noopener");
+        closeModal();
+      } else {
+        showToast("index.html의 DOWNLOAD_URL에 GitHub Releases 주소를 넣으면 바로 받아집니다.");
+        closeModal();
+      }
+    });
+
+    document.getElementById("copyKakaoBtn").addEventListener("click", () => {
+      copyText(SITE_CONFIG.KAKAO_URL, "오픈채팅 주소");
+    });
+    document.getElementById("copyPhoneBtn").addEventListener("click", () => {
+      copyText(SITE_CONFIG.PHONE_NUMBER, "문자 번호");
+    });
+  </script>
+</body>
+</html>
