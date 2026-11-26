@@ -3,199 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>데이터 복구 이미지 전송 도우미 안내</title>
-  <style>
-    body {
-      font-family: "Malgun Gothic", "맑은 고딕", Dotum, sans-serif;
-      font-size: 15px;
-      line-height: 1.65;
-      color: #222222;
-      background-color: #f4f4f0;
-      margin: 0;
-      padding: 20px 12px;
-    }
-    .wrap {
-      max-width: 680px;
-      margin: 0 auto;
-      background-color: #ffffff;
-      border: 1px solid #cccccc;
-      padding: 24px 22px;
-    }
-    h1 {
-      font-size: 21px;
-      margin: 0 0 8px 0;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #444444;
-    }
-    .intro {
-      color: #444444;
-      font-size: 14px;
-      margin-bottom: 18px;
-    }
-    h2 {
-      font-size: 16px;
-      margin: 24px 0 8px 0;
-      color: #111111;
-    }
-    hr {
-      border: 0;
-      border-top: 1px dashed #cccccc;
-      margin: 20px 0;
-    }
-    .dl-box {
-      background-color: #eef4fb;
-      border: 1px solid #9dbce0;
-      padding: 16px;
-      margin: 14px 0;
-    }
-    .dl-btn {
-      display: inline-block;
-      background-color: #2b579a;
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 10px 18px;
-      border: 1px solid #1e3f72;
-      margin-top: 6px;
-    }
-    .dl-btn:hover {
-      background-color: #1e3f72;
-    }
-    .dl-meta {
-      font-size: 13px;
-      color: #555555;
-      margin-top: 8px;
-    }
-    ol.steps {
-      padding-left: 20px;
-      margin: 8px 0;
-    }
-    ol.steps > li {
-      margin-bottom: 12px;
-    }
-    .memo-box {
-      background-color: #fffbe6;
-      border: 1px solid #e0d38c;
-      padding: 12px 14px;
-      font-size: 14px;
-      margin: 10px 0;
-    }
-    .warn-box {
-      background-color: #fdf2f2;
-      border: 1px solid #e0b4b4;
-      padding: 12px 14px;
-      font-size: 14px;
-      margin: 12px 0;
-    }
-    .btn-name {
-      background-color: #eeeeee;
-      border: 1px solid #bbbbbb;
-      padding: 1px 6px;
-      font-size: 13px;
-      font-weight: bold;
-    }
-    ul.notes {
-      padding-left: 18px;
-      margin: 6px 0;
-      font-size: 14px;
-      color: #333333;
-    }
-    ul.notes li {
-      margin-bottom: 6px;
-    }
-    .footer {
-      margin-top: 26px;
-      padding-top: 12px;
-      border-top: 1px solid #dddddd;
-      font-size: 12px;
-      color: #777777;
-    }
-  </style>
+  <title>데이터 복구 이미지 전송 도우미</title>
+  <link rel="stylesheet" href="style.css?v=1">
+  <script src="app.js?v=1" defer></script>
 </head>
 <body>
-  <div class="wrap">
-    <h1>데이터 복구 이미지 전송 도우미</h1>
-    <p class="intro">
-      거창한 복구 업체 홈페이지는 아니고, 지인이나 요청하신 분들 USB·SD카드·외장하드 데이터 복구를
-      원격으로 도와드리려고 직접 만든 작은 프로그램 안내 페이지입니다.<br>
-      저장장치를 택배로 보내지 않고, PC에 꽂은 상태에서 복구용 이미지 파일만 안전하게 넘겨주실 수 있습니다.
-    </p>
+  <div class="container">
+    <header class="header">
+      <span class="badge">Windows 10 / 11 전용</span>
+      <h1>데이터 복구 이미지 전송 도우미</h1>
+      <p class="subtitle">저장장치를 택배로 보낼 필요 없이, PC에 연결해 복구용 이미지만 안전하게 전송합니다.</p>
+    </header>
 
-    <div class="dl-box">
-      <strong>1. 전송 프로그램 내려받기 (Windows 10 / 11 전용)</strong><br>
-      <a id="download-link" class="dl-btn" href="#">recovery-intake.zip 다운로드</a>
-      <div class="dl-meta">
-        * 설치 과정이 없는 단일 실행 파일(recovery-intake.exe)이 들어 있습니다.
+    <section class="card dl-card">
+      <a id="download-link" class="dl-btn" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        recovery-intake.zip 다운로드
+      </a>
+      <div class="dl-meta">설치 과정이 없는 무설치 단일 실행 파일 (recovery-intake.exe)</div>
+    </section>
+
+    <div class="notice">
+      <strong>주의:</strong> 복구할 USB·SD카드에는 절대 새 파일을 복사하거나 포맷하지 말고 그대로 연결해 주세요.
+    </div>
+
+    <section class="card">
+      <h2>진행 순서</h2>
+      <ol class="step-list">
+        <li class="step-item">
+          <span class="step-num">1</span>
+          <div class="step-body">
+            <div class="step-title">압축 해제 후 실행</div>
+            <p class="step-desc">내려받은 <code>recovery-intake.zip</code> 압축을 풀고 <code>recovery-intake.exe</code>를 실행합니다.</p>
+          </div>
+        </li>
+        <li class="step-item">
+          <span class="step-num">2</span>
+          <div class="step-body">
+            <div class="step-title">접수번호 발급</div>
+            <p class="step-desc">안내 동의 후 <span class="key">접수번호 요청하기</span>를 눌러 이름·연락처·데이터 설명을 입력하면 접수번호가 즉시 발급됩니다.</p>
+          </div>
+        </li>
+        <li class="step-item">
+          <span class="step-num">3</span>
+          <div class="step-body">
+            <div class="step-title">장치 선택 및 전송</div>
+            <p class="step-desc">복구할 USB·SD카드·외장하드를 선택한 뒤 <span class="key">전송 시작</span>을 누릅니다. (안 보이면 <span class="key">새로고침</span>)</p>
+          </div>
+        </li>
+        <li class="step-item">
+          <span class="step-num">4</span>
+          <div class="step-body">
+            <div class="step-title">완료 후 결과 문자 확인</div>
+            <p class="step-desc">전송이 끝나면 장치를 뽑으셔도 됩니다. 복구 완료 후 입력하신 번호로 <strong>파일 목록과 미리보기 링크</strong>를 문자로 보내드립니다.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="help-box">
+        <strong>파란색 'Windows의 PC 보호' 창이 뜰 경우</strong>
+        상용 인증서가 없는 개인 개발 도구라 표시되는 기본 안내입니다.<br>
+        창 왼쪽의 <u>추가 정보</u> 클릭 → <span class="key">실행</span> 클릭 → 관리자 권한 허용 <span class="key">예</span> 순서로 진행해 주세요.
       </div>
-    </div>
+    </section>
 
-    <div class="warn-box">
-      <strong>※ 진행 전 꼭 지켜주세요</strong><br>
-      실수로 파일을 지웠거나 포맷 메시지가 뜨는 USB·SD카드에는 <strong>절대 새 파일을 복사하거나 포맷하지 마세요.</strong>
-      그대로 두셔야 데이터가 덮어쓰이지 않아 복구될 확률이 높습니다.
-    </div>
+    <section class="card">
+      <h2>알아두실 점</h2>
+      <ul class="info-list">
+        <li>원본 장치는 읽기 전용으로만 열리며, 내부 데이터를 수정하거나 쓰지 않습니다.</li>
+        <li>내 PC에 임시 이미지 파일을 남기지 않고 압축 스트리밍으로 바로 전송합니다.</li>
+        <li>용량이 큰 장치는 시간이 걸릴 수 있으니 전송 중 PC가 절전 모드로 전환되지 않게 해주세요.</li>
+        <li>오류 발생 시 바탕화면에 로그 파일이 자동 저장되니 해당 파일만 전달해 주시면 됩니다.</li>
+      </ul>
+    </section>
 
-    <hr>
-
-    <h2>2. 사용 순서</h2>
-    <ol class="steps">
-      <li>
-        <strong>압축 풀기 및 실행</strong><br>
-        내려받은 <code>recovery-intake.zip</code> 파일의 압축을 풀고, 안에 있는 <code>recovery-intake.exe</code>를 더블클릭해 실행합니다.
-        <div class="memo-box">
-          <strong>파란색 [Windows의 PC 보호] 창이 뜰 경우</strong><br>
-          개인이 만든 프로그램이라 상용 인증서가 없어서 뜨는 안내입니다.<br>
-          창 왼쪽의 <u>추가 정보</u> 글자를 먼저 누르신 뒤, 아래에 나타나는 <span class="btn-name">실행</span> 버튼을 눌러 주세요.<br>
-          이어서 뜨는 관리자 권한 허용 창에서도 <strong>[예]</strong>를 눌러 주시면 됩니다.
-        </div>
-      </li>
-      <li>
-        <strong>안내 확인 및 동의</strong><br>
-        첫 화면의 안내 내용을 확인하신 뒤 체크박스를 선택하고 <span class="btn-name">다음 →</span> 버튼을 누릅니다.
-      </li>
-      <li>
-        <strong>접수번호 발급받기 (미리 받으실 필요 없음)</strong><br>
-        장치 선택 화면 아래쪽의 <span class="btn-name">접수번호 요청하기</span> 버튼을 누릅니다.<br>
-        <strong>이름, 휴대폰 번호, 복구할 데이터 설명</strong>(필수)과 <strong>발생 증상</strong>(선택)을 적고
-        <span class="btn-name">접수번호 발급받기</span>를 누르면 접수번호가 바로 발급되어 입력칸에 자동으로 들어갑니다.
-      </li>
-      <li>
-        <strong>복구할 장치 선택 후 전송 시작</strong><br>
-        위쪽 목록에서 복구할 USB, SD카드, 외장하드를 클릭해 선택합니다. (방금 꽂아서 안 보이면 <span class="btn-name">새로고침</span> 클릭)<br>
-        장치가 선택된 상태에서 <span class="btn-name">전송 시작</span> 버튼을 누르면 전송이 시작됩니다.
-      </li>
-      <li>
-        <strong>전송 완료 및 결과 문자 안내</strong><br>
-        완료 화면이 나오면 창을 닫고 장치를 뽑으셔도 됩니다.<br>
-        제가 전달받은 이미지를 확인해 복구 작업을 마친 뒤, 적어주신 휴대폰 번호로
-        <strong>복구된 파일 목록과 이미지 미리보기 링크</strong>를 문자로 보내드립니다.
-      </li>
-    </ol>
-
-    <hr>
-
-    <h2>3. 참고 사항</h2>
-    <ul class="notes">
-      <li>원본 저장장치는 읽기 전용으로만 열리며, 장치 내부에는 아무것도 쓰거나 수정하지 않습니다.</li>
-      <li>고객님 PC 하드디스크에 임시 이미지 파일을 쌓아두지 않고 바로 압축 전송합니다.</li>
-      <li>용량이 큰 외장하드나 SD카드는 전송에 시간이 꽤 걸릴 수 있으니, 전송 중에는 PC가 절전 모드로 꺼지지 않게 해주세요.</li>
-      <li>도중에 오류가 나면 바탕화면에 오류 로그 파일이 자동 저장됩니다. 그 파일만 전달해 주시면 원인을 바로 확인할 수 있습니다.</li>
-    </ul>
-
-    <div class="footer">
-      개인 데이터 복구 지원용 안내 페이지 · 문의 및 결과 안내는 접수 시 입력하신 휴대폰 문자로 드립니다.
-    </div>
+    <footer class="footer">
+      개인 원격 데이터 복구 지원 안내 · 문의 및 결과 안내는 접수 시 입력하신 휴대폰 문자로 발송됩니다.
+    </footer>
   </div>
-
-  <script>
-    // GitHub Releases 직링크 주소를 아래에 입력하세요.
-    // releases/latest/download/recovery-intake.zip 형식을 쓰면 새 릴리즈를 올릴 때마다 자동 반영됩니다.
-    const DOWNLOAD_URL = "https://whalsrb100.github.io/release/recovery-intake.zip";
-
-    const dlLink = document.getElementById("download-link");
-    if (dlLink && DOWNLOAD_URL) {
-      dlLink.href = DOWNLOAD_URL;
-    }
-  </script>
 </body>
 </html>
