@@ -1,0 +1,196 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 48px 16px 64px;
+  background-color: #f8fafc;
+  color: #1e293b;
+  font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Malgun Gothic", "맑은 고딕", sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* 상단 타이틀 영역 */
+.header {
+  margin-bottom: 28px;
+}
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #2563eb;
+  background-color: #eff6ff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+h1 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+.subtitle {
+  margin: 0;
+  font-size: 15px;
+  color: #64748b;
+}
+
+/* 공통 카드 */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+/* 다운로드 영역 */
+.dl-card {
+  text-align: center;
+  padding: 28px 24px;
+}
+.dl-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #2563eb;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 13px 28px;
+  border-radius: 10px;
+  transition: background-color 0.15s ease;
+}
+.dl-btn:hover {
+  background-color: #1d4ed8;
+}
+.dl-meta {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* 주의사항 1줄 배너 */
+.notice {
+  background-color: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #92400e;
+  border-radius: 10px;
+  padding: 13px 16px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+.notice strong {
+  font-weight: 700;
+}
+
+/* 섹션 제목 */
+h2 {
+  margin: 0 0 18px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* 단계 리스트 */
+.step-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.step-item {
+  display: flex;
+  gap: 14px;
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #f1f5f9;
+}
+.step-item:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+.step-num {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: #f1f5f9;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+.step-body {
+  flex: 1;
+}
+.step-title {
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+.step-desc {
+  margin: 0;
+  font-size: 14px;
+  color: #475569;
+}
+.key {
+  display: inline-block;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 5px;
+  padding: 0 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #334155;
+}
+
+/* SmartScreen 안내 */
+.help-box {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-top: 18px;
+  font-size: 13.5px;
+  color: #475569;
+}
+.help-box strong {
+  display: block;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+/* 참고 사항 */
+.info-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 14px;
+  color: #475569;
+}
+.info-list li {
+  margin-bottom: 8px;
+}
+.info-list li:last-child {
+  margin-bottom: 0;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 28px;
+  font-size: 12.5px;
+  color: #94a3b8;
+}
